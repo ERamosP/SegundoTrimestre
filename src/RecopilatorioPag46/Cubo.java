@@ -16,11 +16,11 @@ public class Cubo {
 
     public Cubo() {
 
-        material = "plástico";
-        asa = false;
-        color = "negro";
-        capacidadMaxima = 10;
-        contenido = 0;
+        this.material = "plástico";
+        this.asa = false;
+        this.color = "negro";
+        this.capacidadMaxima = 10;
+        this.contenido = 0;
     }
 
     /**
@@ -62,7 +62,7 @@ public class Cubo {
      * @return material
      */
     public String getMaterial() {
-        return material;
+        return this.material;
     }
 
     /**
@@ -81,7 +81,7 @@ public class Cubo {
      */
 
     public boolean isAsa() {
-        return asa;
+        return this.asa;
     }
 
     /**
@@ -98,7 +98,7 @@ public class Cubo {
      */
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     /**
@@ -130,7 +130,7 @@ public class Cubo {
      * @return la cantidad contenida en el cubo
      */
     public int getContenido(){
-        return contenido;
+        return this.contenido;
     }
 
     /**
@@ -143,23 +143,70 @@ public class Cubo {
 
     //Otros metodos
 
-    public void llenarCubo(int maximo,int capacidad){
+    public void llenarCubo(int cantidad){
 
-        if(maximo==capacidad){
+        contenido+=cantidad;
 
+        if(capacidadMaxima==contenido){
+            System.out.println("El cubo esta al maximo de su capacidad");
+
+        }else if (capacidadMaxima<contenido){
+            System.out.println("Del cubo sale agua por todos los lados!!!");
+        }else{
+            System.out.println("El cubo puede contener mas capacidad");
         }
 
     }
 
-    public int vaciarCubo(){
-        return 0;
+    public void vaciarCubo(int cantidad){
+
+        contenido-=cantidad;
+
+        if (contenido<0){
+            contenido=0;
+        }
+
     }
 
-    public int volcarContenido(){
-        return 0;
+    public void volcarContenido(Cubo cubito, int cantVolcar){
+
+
+
+        if (capacidadMaxima>cubito.contenido && contenido>=cantVolcar){
+            cubito.contenido+=cantVolcar;
+            this.contenido-=cantVolcar;
+
+        }else{
+
+            System.out.println("ya no hay mas espacio en el cubo");
+        }
+
+
     }
 
     public void dibujarCubo(){
 
+        if (contenido>capacidadMaxima){
+
+            for (int altura=0;altura<=capacidadMaxima;altura++){
+                if (contenido>=altura){
+                    System.out.println("~~|~~~~~~|~~");
+                }else {
+                    System.out.println( "|      |");
+                }
+            }
+            System.out.println("~~|~~~~~~|~~");
+        }
+        if (contenido<capacidadMaxima) {
+
+            for (int altura = 0; altura <= capacidadMaxima; altura++) {
+                if (contenido >= altura) {
+                    System.out.println("|~~~~~~|");
+                } else {
+                    System.out.println("|      |");
+                }
+            }
+            System.out.println("~~~~~~");
+        }
     }
 }
