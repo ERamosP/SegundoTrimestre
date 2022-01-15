@@ -45,15 +45,16 @@ public class Cubo {
     /**
      * Metodo constructor copia
      *
-     * @param cubito
+     * @param cubo
      */
-    public Cubo(Cubo cubito) {
 
-        this.material = cubito.material;
-        this.asa = cubito.asa;
-        this.color = cubito.color;
-        this.capacidadMaxima = cubito.capacidadMaxima;
-        this.contenido = cubito.contenido;
+    public Cubo(Cubo cubo) {
+
+        this.material = cubo.material;
+        this.asa = cubo.asa;
+        this.color = cubo.color;
+        this.capacidadMaxima = cubo.capacidadMaxima;
+        this.contenido = cubo.contenido;
     }
 
     /**
@@ -143,9 +144,14 @@ public class Cubo {
 
     //Otros metodos
 
-    public void llenarCubo(int cantidad){
+    /**
+     * Metodo que va a devolver la cantidad que le vamos a agregar a un cubo
+     * Precondiciones: la cantidad no debe ser mayor que la capacidad maxima del cubo o una cantidad negativa
+      * @param litros
+     */
+    public void llenarCubo(int litros){
 
-        contenido+=cantidad;
+        contenido+=litros;
 
         if(capacidadMaxima==contenido){
             System.out.println("El cubo esta al maximo de su capacidad");
@@ -158,9 +164,15 @@ public class Cubo {
 
     }
 
-    public void vaciarCubo(int cantidad){
+    /**
+     * Metodo que va a devolver la cantidad de litros que quedan en el cubo
+     * tras vaciar una cantidad concreta, la cantidad no puede ser positiva
+     * Precondiciones: el cubo al llegar a cero no puede quedarse en una cantidad negativa, por lo tanto su minimo es 0
+     * @param litros
+     */
+    public void vaciarCubo(int litros){
 
-        contenido-=cantidad;
+        contenido-=litros;
 
         if (contenido<0){
             contenido=0;
@@ -168,14 +180,21 @@ public class Cubo {
 
     }
 
-    public void volcarContenido(Cubo cubito, int cantVolcar){
+    /**
+     * Con este metodo queremos controlar la cantidad de litros que se van a verter de un cubo a otro, teniendo en cuenta la
+     * capacidad del cubo que va a recibir los litros.
+     * Precondiciones: la cantidad de litros de el cubo que va a recibir el liquido del otro, como minimo ha de ser 0
+     * y como maximo la capacidad maxima, por lo que si esta esta completa, no puede recibir nada
+     * @param cubo
+     * @param cantVolcar
+     */
+    public void volcarContenido(Cubo cubo, int cantVolcar){
 
-
-
-        if (capacidadMaxima>cubito.contenido && contenido>=cantVolcar){
-            cubito.contenido+=cantVolcar;
+         if (capacidadMaxima>cubo.contenido){
+            cubo.contenido+=cantVolcar;
             this.contenido-=cantVolcar;
 
+             System.out.println("el cubo 1 tiene"+ cubo.contenido);
         }else{
 
             System.out.println("ya no hay mas espacio en el cubo");
