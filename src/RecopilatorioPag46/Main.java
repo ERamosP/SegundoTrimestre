@@ -18,7 +18,7 @@ public class Main {
         cubo1.llenarCubo(10);
         cubo1.vaciarCubo(5);
         cubo2.volcarContenido(cubo1);
-        cubo2.dibujarCubo(cubo2.getContenidoActual());
+        cubo2.dibujarCubo(cubo2);
 
         System.out.println("Antes de restarle litros al cubo este tenia: "+cubo1.getContenidoActual());
 
