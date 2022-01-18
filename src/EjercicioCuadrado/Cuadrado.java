@@ -10,28 +10,26 @@ public class Cuadrado {
 
 
     public String toString() {
-
-         String display="";
-
-        // Pintamos la parte superior del cuadrado
-
-        for (int i=0;i<this.lado;i++){
-            display +="*";
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < this.lado; i++) {
+            stringBuilder.append("* ");
         }
-        display+="\n";
+        stringBuilder.append(System.lineSeparator());
 
-        for (int i=0;i<this.lado-2;i++){
-            display +="*";
+         for (int i=0;i<this.lado-2;i++){
+            stringBuilder.append("* ");
 
-            for (int j=0;j<this.lado-2;j++){
-                display +=" ";
+         for (int j=0;j<this.lado-2;j++){
+
+             stringBuilder.append("  ");
             }
-            display+="*\n";
+            stringBuilder.append("* ");
+         stringBuilder.append (System.lineSeparator());
         }
         for (int i=0;i<this.lado;i++){
-            display +="*";
+            stringBuilder.append("* ");
         }
 
-        return display;
+        return stringBuilder.toString();
     }
 }

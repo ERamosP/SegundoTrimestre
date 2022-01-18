@@ -3,11 +3,12 @@ package RecopilatorioPag46;
 public class Cubo {
 
     // Atributos
+
     private String material;
     private boolean asa;
     private String color;
     private int capacidadMaxima;
-    private int contenidoActual;
+    private int contenido;
 
     /**
      * Metodo constructor
@@ -19,7 +20,7 @@ public class Cubo {
         this.asa = false;
         this.color = "negro";
         this.capacidadMaxima = 10;
-        this.contenidoActual = 0;
+        this.contenido = 0;
     }
 
     /**
@@ -29,31 +30,30 @@ public class Cubo {
      * @param asa
      * @param color
      * @param capacidadMaxima
-     * @param contenidoActual
+     * @param contenido
      */
 
-    public Cubo(String material, boolean asa, String color, int capacidadMaxima, int contenidoActual) {
+    public Cubo(String material, boolean asa, String color, int capacidadMaxima, int contenido) {
 
         this.material = material;
         this.asa = asa;
         this.color = color;
         this.capacidadMaxima = capacidadMaxima;
-        this.contenidoActual = contenidoActual;
+        this.contenido = contenido;
     }
 
     /**
      * Metodo constructor copia
      *
-     * @param copiaCubo
+     * @param cubito
      */
+    public Cubo(Cubo cubito) {
 
-    public Cubo(Cubo copiaCubo) {
-
-        this.material = copiaCubo.getMaterial();
-        this.asa = copiaCubo.isAsa();
-        this.color = copiaCubo.getColor();
-        this.capacidadMaxima = copiaCubo.getCapacidadMaxima();
-        this.contenidoActual = copiaCubo.getContenidoActual();
+        this.material = cubito.material;
+        this.asa = cubito.asa;
+        this.color = cubito.color;
+        this.capacidadMaxima = cubito.capacidadMaxima;
+        this.contenido = cubito.contenido;
     }
 
     /**
@@ -86,6 +86,7 @@ public class Cubo {
 
     /**
      * Metodo setter del booleano asa, al que le introducimos por parametros el valor del booleano
+     *
      * @param asa
      */
     public void setAsa(boolean asa) {
@@ -94,6 +95,7 @@ public class Cubo {
 
     /**
      * Metodo getter para el atributo color
+     *
      * @return color
      */
 
@@ -103,6 +105,7 @@ public class Cubo {
 
     /**
      * Metodo setter del atributo color al que se le pasa por parametros el color
+     *
      * @param color
      */
     public void setColor(String color) {
@@ -111,6 +114,7 @@ public class Cubo {
 
     /**
      * Metodo getter del atributo capacidadMaxima
+     *
      * @return capacidadMaxima
      */
     public int getCapacidadMaxima() {
@@ -119,6 +123,7 @@ public class Cubo {
 
     /**
      * Metodo setter de capacidadMaxima al que se le introduce por parametro la capacidad maxima
+     *
      * @param capacidadMaxima
      */
     public void setCapacidadMaxima(int capacidadMaxima) {
@@ -127,130 +132,79 @@ public class Cubo {
 
     /**
      * Metodo getter de contenido
+     *
      * @return la cantidad contenida en el cubo
      */
-    public int getContenidoActual(){
-        return this.contenidoActual;
+    public int getContenido() {
+        return this.contenido;
     }
 
     /**
      * Metodo setter de contenido al que le pasamos por parametros el contenido del cubo
-     * @param contenidoActual
+     *
+     * @param contenido
      */
-    public void setContenidoActual(int contenidoActual){
-        this.contenidoActual = contenidoActual;
+    public void setContenido(int contenido) {
+        this.contenido = contenido;
     }
 
     //Otros metodos
 
-    public void llenarCubo(){
-        this.capacidadMaxima=this.capacidadMaxima+this.contenidoActual;
-    }
+    public void llenarCubo(int cantidad) {
 
-    /**
-     * Metodo por el que queremos indicar la cantidad de litros que almacena un cubo al agregarle una cantidad de litros
-     * indicada por parametros sin saber si el cubo tenia o no contenido en su interior y en el caso de que sobren litros
-     * como consecuencia de que este este al maximo de su capacidad, indique cuantos litros sobran
-     *
-     * Precondiciones: la cantidad no debe ser una cantidad negativa y que el cubo de destino no
-     * este a su maximo de capacidad
-      * @param litros
-     */
-    public int llenarCubo(int litros){
+        contenido += cantidad;
 
-        int litrosSobrantes;
-        this.contenidoActual = this.contenidoActual + litros;
+        if (capacidadMaxima == contenido) {
+            System.out.println("El cubo esta al maximo de su capacidad");
 
-        if(this.capacidadMaxima<this.contenidoActual){
-
-            litrosSobrantes=this.contenidoActual-this.capacidadMaxima;
-
-        }else {
-            this.capacidadMaxima=this.capacidadMaxima+this.contenidoActual;
-            litrosSobrantes=0;
-        }
-        return litrosSobrantes;
-    }
-
-    public void vaciarCubo(){
-        this.contenidoActual=0;
-    }
-
-    /**
-     * Metodo que indica la cantidad de litros que quedaran en el cubo tras restarle
-     * un numero determinado de litros esta no puede ser negativa
-     *
-     * Precondiciones: el cubo al llegar a cero no puede quedarse en una
-     * cantidad negativa, por lo tanto su minimo es 0
-     * @param litros
-     */
-    public void vaciarCubo(int litros){
-
-        contenidoActual -=litros;
-
-        if (contenidoActual <0){
-            contenidoActual =0;
-
+        } else if (capacidadMaxima < contenido) {
+            System.out.println("Del cubo sale agua por todos los lados!!!");
+        } else {
+            System.out.println("El cubo puede contener mas capacidad");
         }
 
     }
-/*
-    /**
-     * Con este metodo queremos controlar la cantidad de litros que se van a verter de un cuboDestino a otro, teniendo en cuenta la
-     * capacidad del cuboDestino que va a recibir los litros.
-     * Precondiciones: la cantidad de litros de el cuboDestino que va a recibir el liquido del otro, como minimo ha de ser 0
-     * y como maximo la capacidad maxima, por lo que si esta esta completa, no puede recibir nada
-     * @param cuboDestino
-     * @param cantVolcar
-     */
-   public void volcarContenido(Cubo cuboDestino){
 
-      // cuboDestino.llenarCubo(this.contenidoActual);
-       if (cuboDestino.llenarCubo(this.contenidoActual)==0){
-           this.vaciarCubo();
-       }else if (cuboDestino.llenarCubo(this.contenidoActual)>0){
-           this.vaciarCubo();
-           this.llenarCubo(this.llenarCubo(cuboDestino.contenidoActual));
-       }
+    public void vaciarCubo(int cantidad) {
 
-    /* int totalLlenado= this.contenidoActual+cuboDestino.contenidoActual;
+        contenido -= cantidad;
 
-         if (this.capacidadMaxima>this.contenidoActual+cuboDestino.contenidoActual){
+        if (contenido < 0) {
+            contenido = 0;
+        }
 
-             int totalVaciado=this.contenidoActual-this.contenidoActual;
+    }
 
-             System.out.println("el cuboDestino 1 tiene "+ totalVaciado + " litros");
-             System.out.println("El cuboDestino 2 tiene " + totalLlenado + " litro");
-        }else{
+    public void volcarContenido(Cubo cubito, int cantVolcar) {
 
-            System.out.println("ya no hay mas espacio en el cuboDestino");
-             System.out.println("el cuboDestino dos estaría a su maxima capacidad");
-        }*/
+
+        if (capacidadMaxima > cubito.contenido && contenido >= cantVolcar) {
+            cubito.contenido += cantVolcar;
+            this.contenido -= cantVolcar;
+
+        } else {
+
+            System.out.println("ya no hay mas espacio en el cubo");
+        }
 
 
     }
 
-    public void dibujarCubo(Cubo cubo){
+    public void dibujarCubo() {
 
-        if (this.contenidoActual == this.capacidadMaxima){
 
-            for (int altura=0;altura<this.capacidadMaxima;altura++){
+        // Pintamos la parte superior del cuadrado
 
-                    System.out.println( "|~~~~~~|");
 
+        for (int i = 0; i < this.capacidadMaxima - 2; i++) {
+            System.out.println("*");
+
+            for (int j = 0; j < this.contenido - 2; j++) {
+                System.out.print("-------");
             }
-            System.out.println("|~~~~~~|");
-        }
-        if (this.contenidoActual < this.capacidadMaxima) {
+            System.out.println("*");
 
-            for (int altura = 0; altura < this.capacidadMaxima; altura++) {
-                for (int i=0; i<this.contenidoActual-2;i++) {
-                    System.out.print("|");
-                }
-                    System.out.println("");
-                }
-            }
-            System.out.println(" ");
+
         }
     }
-
+}
