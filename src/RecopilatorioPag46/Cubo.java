@@ -150,42 +150,66 @@ public class Cubo {
 
     //Otros metodos
 
-    public void llenarCubo(int cantidad) {
-
-        contenido += cantidad;
-
-        if (capacidadMaxima == contenido) {
-            System.out.println("El cubo esta al maximo de su capacidad");
-
-        } else if (capacidadMaxima < contenido) {
-            System.out.println("Del cubo sale agua por todos los lados!!!");
-        } else {
-            System.out.println("El cubo puede contener mas capacidad");
-        }
-
+    public void llenarCubo(){
+        this.contenido=this.capacidadMaxima;
+        System.out.println("El cubo esta a la capacidad maximo que es: " + this.capacidadMaxima);
     }
 
-    public void vaciarCubo(int cantidad) {
+    public int llenarCubo(int cantidad) {
+
+        int resto;
+        contenido += cantidad;
+
+      if (this.capacidadMaxima < this.contenido) {
+            resto=this.contenido-this.capacidadMaxima;
+        } else {
+
+           resto=0;
+        }
+        return resto;
+    }
+
+    public void vaciarCubo(){
+        this.contenido=0;
+        System.out.println("El cubo esta vacio");
+    }
+
+    public int vaciarCubo(int cantidad) {
 
         contenido -= cantidad;
 
         if (contenido < 0) {
             contenido = 0;
         }
-
+            return contenido;
     }
 
-    public void volcarContenido(Cubo cubito, int cantVolcar) {
+    public void volcarContenido(Cubo cuboDestino) {
+
+        int resto;
+        cuboDestino.llenarCubo(this.contenido);
+
+        if (cuboDestino.contenido==cuboDestino.capacidadMaxima){
+            System.out.println("El contenido del cubo esta lleno y no ha sobrado nada");
+        }else if (cuboDestino.contenido<cuboDestino.capacidadMaxima){
+            System.out.println("El cubo tiene: "+ cuboDestino.contenido);
+        }else{
+
+            resto=this.contenido-cuboDestino.capacidadMaxima;
+            cuboDestino.contenido=cuboDestino.capacidadMaxima;
+            //this.llenarCubo(this.llenarCubo(cuboDestino.contenido));
+            System.out.println("El cubo de destino esta lleno y en el cubo de origen quedan "+ resto +" litros");
+        }
 
 
-        if (capacidadMaxima > cubito.contenido && contenido >= cantVolcar) {
+      /*  if (capacidadMaxima > cubito.contenido && contenido >= cantVolcar) {
             cubito.contenido += cantVolcar;
             this.contenido -= cantVolcar;
 
         } else {
 
             System.out.println("ya no hay mas espacio en el cubo");
-        }
+        }*/
 
 
     }
