@@ -62,6 +62,8 @@ public class Coche {
         return "Los kilometros recorridos son " + getKmRecorridos();
 
     }
+
+
  /*     Aqui queria hacer la suma y devolver los dos valores diferentes, pero como he puesto antes
        no me deja hacerlo ya que el metodo estatico al pertenecer solo a la clase, y no al objeto se
        queda almacenado el ultimo valor añadido. Por ello no funciona y lo he metido como publico
