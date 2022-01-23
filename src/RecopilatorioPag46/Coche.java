@@ -77,6 +77,7 @@ public class Coche {
         return total;
     }*/
 
+
     public static void main(String[] args) {
 
         Coche coche1=new Coche();
