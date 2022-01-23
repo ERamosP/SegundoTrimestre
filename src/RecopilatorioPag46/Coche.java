@@ -69,7 +69,6 @@ public class Coche {
        queda almacenado el ultimo valor añadido. Por ello no funciona y lo he metido como publico
 
    public static int contarKilomentros(int coche1, int coche2){
-
        int num1= setKmRecorridos(coche1);
         setKmRecorridos(coche2);
 
