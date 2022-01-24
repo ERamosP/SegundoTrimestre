@@ -16,12 +16,14 @@ enum MediosTransporte{  BARCO, CAMION, COCHE, TREN, AVION }
         MediosTransporte t5= MediosTransporte.CAMION;
         System.out.println("El orden del avion es " + t1.ordinal());
 
-        if (t2.ordinal()< t2.ordinal()){
+        if (t2.ordinal()< t1.ordinal()){
+            System.out.println("el barco es mas lento que el avion");
+        }
+        if (t3.ordinal()< t4.ordinal()){
             System.out.println("el barco es mas lento que el avion");
         }
 
 
-      //  System.out.println(MediosTransporte.valueOf;
     }
 }
 
