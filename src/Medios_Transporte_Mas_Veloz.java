@@ -4,8 +4,6 @@ enum MediosTransporte{   COCHE, CAMION, TREN, BARCO, AVION
 
 public class Medios_Transporte_Mas_Veloz {
 
-
-
      private MediosTransporte medio;
 
  /*  private mediosTransporte(String medio){
