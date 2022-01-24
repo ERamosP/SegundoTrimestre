@@ -4,52 +4,49 @@ import java.util.Scanner;
 
 public class Coche {
 
-    static String color;
-    static String marca;
-    static String modelo;
-    static String matricula;
+    private  String color;
+    private  String marca;
+    private  String modelo;
+    private  String matricula;
     private int kmRecorridos;
 
     public Coche(){
 
     }
 
-    public static String getColor() {
+    public String getColor() {
         return color;
     }
 
-    public static void setColor(String color) {
-        Coche.color = color;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public static String getMarca() {
+    public String getMarca() {
         return marca;
     }
 
-    public static void setMarca(String marca) {
-        Coche.marca = marca;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public static String getModelo() {
+    public String getModelo() {
         return modelo;
     }
 
-    public static void setModelo(String modelo) {
-        Coche.modelo = modelo;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public static String getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public static void setMatricula(String matricula) {
-        Coche.matricula = matricula;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
-    /**
-     * Este metodo lo he hecho publico, ya que al hacerlo statico, no me deja almacenar dos valores diferentes
-     * lo que hace es que le asigna a las dos clases el ultimo valor dado. por ello no puedo sumarlo
-     * @return
-     */
+
+
     public int getKmRecorridos() {
         return kmRecorridos;
     }
@@ -66,16 +63,17 @@ public class Coche {
 
  /*     Aqui queria hacer la suma y devolver los dos valores diferentes, pero como he puesto antes
        no me deja hacerlo ya que el metodo estatico al pertenecer solo a la clase, y no al objeto se
-       queda almacenado el ultimo valor añadido. Por ello no funciona y lo he metido como publico
+       queda almacenado el ultimo valor añadido. Por ello no funciona y lo he metido como publico*/
 
-   public static int contarKilomentros(int coche1, int coche2){
-       int num1= setKmRecorridos(coche1);
-        setKmRecorridos(coche2);
+   public static int contarKilomentros(int kmRecorridos){
+
+
+
 
         int total=getKmRecorridos()+getKmRecorridos();
 
         return total;
-    }*/
+    }
 
 
     public static void main(String[] args) {
