@@ -68,11 +68,7 @@ public class Coche {
    public static int contarKilomentros(int kmRecorridos){
 
 
-
-
-        int total=getKmRecorridos()+getKmRecorridos();
-
-        return total;
+        return 0;
     }
 
 
