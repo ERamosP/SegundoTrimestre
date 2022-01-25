@@ -1,4 +1,7 @@
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Clase24_01_2022 {
 
@@ -57,6 +60,20 @@ public class Clase24_01_2022 {
                          break;
            }
 
+           //Formateando las fechas
+
+        Date date = new Date();
+
+        SimpleDateFormat fechaSevilla = new SimpleDateFormat(" 'En Sevilla a ' EEEE', 'dd 'de '" +
+                "MMMM 'de' yyyy" );
+        System.out.println(fechaSevilla.format(date));
+
+        // Calendario Gregoriano
+        Date fecha4= new Date();
+        Calendar calendario=new GregorianCalendar();
+      fecha4=calendario.getTime();
+
+    System.out.println("Año: " +fecha4);
     }
 
     }

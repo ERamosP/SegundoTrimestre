@@ -30,9 +30,12 @@ public class Maderas {
     public static void main(String[] args) {
 
 
-        Scanner sc=new Scanner(System.in);
-     Maderas tabla1=new Maderas();
-        System.out.println("Introduzca el material que desee");
+         Scanner sc=new Scanner(System.in);
+         Maderas tabla1=new Maderas();
+
+
+     System.out.println("Introduzca el material que desee");
+
 
     System.out.println( elegirMadedera(tipoMaderas.valueOf(sc.next())));
     }

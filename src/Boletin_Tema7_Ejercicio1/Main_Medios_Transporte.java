@@ -1,4 +1,4 @@
-package Medios_Transporte;
+package Boletin_Tema7_Ejercicio1;
 
 import java.util.Scanner;
 
