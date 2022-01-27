@@ -9,19 +9,20 @@ enum MediosTransporte{  BARCO, CAMION, COCHE, TREN, AVION }
          * la idea del ordinal es para saber la posicion que ocupa el transporte en el enum y sacarles el maximo partido
          * o jugar con ellos
          */
-        MediosTransporte t1= MediosTransporte.AVION;
-        MediosTransporte t2= MediosTransporte.BARCO;
+        MediosTransporte t1= MediosTransporte.BARCO;
+        MediosTransporte t2= MediosTransporte.CAMION;
         MediosTransporte t3= MediosTransporte.COCHE;
         MediosTransporte t4= MediosTransporte.TREN;
-        MediosTransporte t5= MediosTransporte.CAMION;
+        MediosTransporte t5= MediosTransporte.AVION;
         System.out.println("El orden del avion es " + t1.ordinal());
 
         if (t2.ordinal()< t1.ordinal()){
-            System.out.println("el barco es mas lento que el avion");
+            System.out.println("el barco es mas lento que el camion");
         }
-        if (t3.ordinal()< t4.ordinal()){
-            System.out.println("el barco es mas lento que el avion");
+        else{
+            System.out.println("el camion es mas lento que el barco");
         }
+
 
 
     }
