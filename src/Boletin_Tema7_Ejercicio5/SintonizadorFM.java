@@ -36,19 +36,19 @@ public class SintonizadorFM {
         System.out.println("El aparato esta sintonizado en la frecuencia de 80MHz");
     }
     /**
-     * sube la frecuancia en saltos de 0,5 hasta llegar a su maximo,
-     * pero si lo sobrepasa debe volver a la fecuencia minima
+     * sube la frecuancia en saltos de 0,5 y si llega a su maximo,
+     * debe volver a la frecuancia minima
      */
-    public void subirFrecuencia(){
+    public void up(){
 
 
     }
 
     /**
-     * baja la frecuancia en saltos de 0,5 hasta llegar a su minimo,
-     *      * pero si lo sobrepasa debe volver a la fecuencia maxima
+     * baja la frecuancia en saltos de 0,5 y si llega a su minimo debe volver a la
+     * frecuencia maxima
      */
-    public void bajarFrecuencia(){
+    public void down(){
 
 
     }
@@ -57,6 +57,7 @@ public class SintonizadorFM {
      * mostramos la frecuencua en la que se encuentra el aparato en el momento
      * que elegimos la frecuancia deseada
      * @return
+     * podemos usa un toString
      */
     public float mostrarFrecuencia(){
 
