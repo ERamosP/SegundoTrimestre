@@ -46,8 +46,8 @@ public class Hora {
 
         for (int i=0;i<segundos;i++){
             this.segundos=this.segundos+segundos;
-            System.out.println("Horas: "+this.horas+ " minutos " +this.minutos+ " segundos "+this.segundos);
         }
+        System.out.println("Horas: "+this.horas+ " minutos " +this.minutos+ " segundos "+this.segundos);
      }
 
      public void suma(){
