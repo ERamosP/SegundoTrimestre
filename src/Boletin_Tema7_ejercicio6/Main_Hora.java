@@ -1,4 +1,4 @@
-package Boletin_Tema7_ejercicio6;
+package Boletin_Tema7_Ejercicio6;
 
 
 import java.util.Calendar;

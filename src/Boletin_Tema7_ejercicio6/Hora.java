@@ -1,4 +1,4 @@
-package Boletin_Tema7_ejercicio6;
+package Boletin_Tema7_Ejercicio6;
 /**
  * Ejercicio 6.- Se desea obtener la fecha del día y pedir por teclado un número entero de segundos.
  * Se solicita que se muestre la hora del día y las n siguientes horas que se diferencian en un segundo.
@@ -44,8 +44,9 @@ public class Hora {
 
     public void sumarYMuestra(int segundos){
 
+
         for (int i=0;i<segundos;i++){
-            this.segundos=this.segundos+segundos;
+            this.segundos=this.segundos+1;
         }
         System.out.println("Horas: "+this.horas+ " minutos " +this.minutos+ " segundos "+this.segundos);
      }
