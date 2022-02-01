@@ -9,15 +9,63 @@ nuevo punto de la clase Punto cuyas coordenadas son a y b.
 un objeto Punto.
  Los métodos modificadores setX() y setY(), que reciben un argumento y modifican el valor
 de la correspondiente coordenada de un objeto Punto.
- El método igual(), que comprueba si un objeto de la clase Punto es igual a otro dado que se
+
+
+ */
+public class Punto {
+
+    private int coordX;
+    private int coordY;
+
+    public Punto(int coordX, int coordY) {
+        this.coordX = coordX;
+        this.coordY = coordY;
+    }
+
+    public Punto(){
+
+    }
+
+    public void setCoordX(int coordX){
+        this.coordX=coordX;
+    }
+    public int getCoordX(){
+        return coordX;
+    }
+
+    public void setCoordY(int coordY) {
+        this.coordY = coordY;
+    }
+
+    public int getCoordY() {
+        return coordY;
+    }
+
+    /*
+     El método igual(), que comprueba si un objeto de la clase Punto es igual a otro dado que se
 pasa como argumento.
  El método distancia(), sin argumentos, que calcula la distancia de un objeto de la clase
 Punto al origen de coordenadas.
  El método distancia(), que calcula la distancia de un objeto de la clase Punto a otro que se
 proporciona como argumento.
+     */
 
- */
-public class Punto {
+    public void igual(int coordA, int coordXB){
+
+        if (this.coordX==this.coordY){
+            System.out.println("La coordenada 'X' es la misma que la coordenada 'Y' ");
+        }
+    }
 
 
+    public int distancia(){
+
+        return 0;
+    }
+
+
+    public int distancia(int coordX, int coordY){
+
+        return 0;
+    }
 }
