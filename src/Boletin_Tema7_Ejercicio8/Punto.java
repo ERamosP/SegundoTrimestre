@@ -50,21 +50,23 @@ Punto al origen de coordenadas.
 proporciona como argumento.
      */
 
-    public void igual(int coordA, int coordXB){
+    public void igual(Punto punto){
 
-        if (this.coordX==this.coordY){
-            System.out.println("La coordenada 'X' es la misma que la coordenada 'Y' ");
+        if (this.coordX==punto.coordX && this.coordY== punto.coordY){
+            System.out.println("El punto uno y el punto dos son iguales");
+        }else{
+            System.out.println("Los puntos indicados son diferentes");
         }
     }
 
 
-    public int distancia(){
+    public void distancia(){
 
         return 0;
     }
 
 
-    public int distancia(int coordX, int coordY){
+    public int distancia(Punto punto){
 
         return 0;
     }

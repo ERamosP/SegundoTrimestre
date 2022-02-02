@@ -111,7 +111,7 @@ public class Fraccion {
      * paramatros
 
      */
-    public void multiplicarFraccion(int numerador, int denominador){
+    public void multiplicarFraccion(Fraccion fraccion){
        pedirNumerador();
        pedirNumerador();
        numerador=this.numerador;
