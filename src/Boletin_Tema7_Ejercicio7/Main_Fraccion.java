@@ -1,30 +1,42 @@
 package Boletin_Tema7_Ejercicio7;
 
 
+import java.util.Scanner;
+
 public class Main_Fraccion {
+
+            static Scanner sc=new Scanner(System.in);
+            public static float pedirNumerador(){
+                System.out.println("Introduzca el numerador");
+                return sc.nextFloat();
+            }
+
+            public static float pedirDenominador() {
+
+                float denominador=0;
+                do {
+                    System.out.println("Introduzca el valor del denominador");
+                    denominador= sc.nextFloat();
+                } while (denominador <0);
+                return denominador;
+            }
+
 
     public static void main(String[] args) {
 
 
-    Fraccion fraccion1=new Fraccion();
-  //  Fraccion fraccion2=new Fraccion();
+
+    Fraccion fraccion1=new Fraccion(pedirNumerador(),pedirDenominador());
+
+   // Fraccion fraccion2=new Fraccion(pedirNumerador(),pedirDenominador());
+
+        System.out.println(  fraccion1.dividir(7));
 
 
 
-        System.out.println("el resultado de multiplicarla por un numero es: " +fraccion1.multiplicar(6));
 
 
 
-
-
-
-       // System.out.println("La multiplicacion entre un valor es de : " + fraccion1.multiplicar(4));
-
-       /* System.out.println(fraccion1);
-        System.out.println(fraccion1.simplificar(fraccion1.getNumerador(), fraccion1.getDenominador()));
-
-        fraccion2.pedirDatos();
-        System.out.println(fraccion2);*/
 }
 
 }

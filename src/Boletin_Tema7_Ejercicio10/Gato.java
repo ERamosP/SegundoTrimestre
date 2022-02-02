@@ -2,11 +2,7 @@ package Boletin_Tema7_Ejercicio10;
 /*
 Ejercicio 10.- Implementar una clase Gato con las siguientes características:
  Atributos (String) nombre, color, raza, (Int) edad
- Constructores necesarios
- Que implemente dos método CompareTo para compararlos por nombre y por edad
- Haced un programa principal sencillo que cree dos gatos y pruebe los métodos de
-comparación.*/
-
+ Constructores necesarios*/
 public class Gato {
 
     private String nombre;
@@ -46,13 +42,34 @@ public class Gato {
         return edad;
     }
 
-    public String compararNombre(){
+    /* Que implemente dos método CompareTo para compararlos por nombre y por edad
+    Haced un programa principal sencillo que cree dos gatos y pruebe los métodos de
+    comparación. */
+    public String compararNombre(Gato gato){
 
-        return "";
+       if (this.nombre.equals(gato.nombre)){
+           return "Los dos gatos se llaman igual";
+       }else
+
+
+        return "Tienen distinto nombre";
     }
-    public String compararEdad(){
-
-        return "";    }
+    public int compararEdad(Gato gato) {
 
 
+        if (this.edad == gato.edad) {
+           int edad = this.edad;
+       }
+        return edad;
+    }
+
+    @Override
+    public String toString() {
+        return "Gato{" +
+                "nombre='" + nombre + '\'' +
+                ", color='" + color + '\'' +
+                ", raza='" + raza + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
 }
