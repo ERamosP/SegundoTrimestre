@@ -5,8 +5,8 @@ Ejercicio 10.- Implementar una clase Gato con las siguientes características:
  Constructores necesarios
  Que implemente dos método CompareTo para compararlos por nombre y por edad
  Haced un programa principal sencillo que cree dos gatos y pruebe los métodos de
-comparación.
- */
+comparación.*/
+
 public class Gato {
 
     private String nombre;

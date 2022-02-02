@@ -62,7 +62,7 @@ proporciona como argumento.
 
     public void distancia(){
 
-        return 0;
+
     }
 
 

@@ -1,4 +1,4 @@
-package Boletin_Tema7_Ejercicio6;
+package Boletin_Tema7_ejercicio6;
 
 
 import java.util.Calendar;
@@ -34,6 +34,7 @@ public class Main_Hora {
         //llamamos al metodo sumarYMostrar
 
             nuevaHora.sumarYMuestra(segundos);
+
 
     }
 }

@@ -112,8 +112,7 @@ public class Fraccion {
 
      */
     public void multiplicarFraccion(Fraccion fraccion){
-       pedirNumerador();
-       pedirNumerador();
+
        numerador=this.numerador;
        denominador=this.denominador;
 
