@@ -23,6 +23,8 @@ public class Punto {
     }
 
     public Punto(){
+        coordX=1;
+        coordY=1;
 
     }
 
@@ -60,14 +62,20 @@ proporciona como argumento.
     }
 
 
-    public void distancia(){
+    public void distanciaPunto(){
+
+        double cuadradoX=Math.pow(this.coordX,2);
+        double cuadradoY=Math.pow(this.coordY,2);
 
 
     }
 
 
-    public int distancia(Punto punto){
+    public double distancia(Punto punto){
 
-        return 0;
+        double cuadradoX=Math.pow(0-this.coordX,2);
+        double cuadradoY=Math.pow(this.coordY,2);
+
+        return Math.sqrt((0-cuadradoX)+(0-cuadradoY));
     }
 }

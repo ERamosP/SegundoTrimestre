@@ -1,9 +1,10 @@
 package Boletin_Tema7_Ejercicio10;
+
 /*
 Ejercicio 10.- Implementar una clase Gato con las siguientes características:
  Atributos (String) nombre, color, raza, (Int) edad
  Constructores necesarios*/
-public class Gato implements Comparable <Gato>{
+public class Gato implements Comparable<Gato> {
 
     private String nombre;
     private String color;
@@ -21,28 +22,35 @@ public class Gato implements Comparable <Gato>{
         this.edad = edad;
     }
 
-    public void  setNombre(String nombre) {
-       this.nombre=nombre;
-   }
-    public void  setColor(String color){
-        this.color=color;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public void setRaza(String raza) {
         this.raza = raza;
     }
-    public void setEdad(int edad){
-        this.edad=edad;
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
-    public String getNombre(){
+
+    public String getNombre() {
         return nombre;
     }
+
     public String getColor() {
         return color;
     }
-    public String getRaza(){
+
+    public String getRaza() {
         return raza;
     }
-    public int getEdad(){
+
+    public int getEdad() {
         return edad;
     }
 
@@ -50,59 +58,45 @@ public class Gato implements Comparable <Gato>{
     Haced un programa principal sencillo que cree dos gatos y pruebe los métodos de
     comparación. */
 
+    /**
+     * Con este metodo lo que se pretende es comprarar la edad de los gatos para saber si
+     * tienen o no la misma edad, por lo que inicializamos el vamos de devolucion a -1, que
+     * es uno de los 3 valores que retorna el compareTo, por ello si devuelve un 1 el primero es mayor que el segundo,
+     * un 0 si son iguales y -1 si el segundo es mayor que el primero
+     * @param gato
+     * @return devuelve un numero entre el -1 y 1.
+     */
 
-   public int compareTo(Gato gato){
+    public int compareTo(Gato gato) {
 
-        int devolucion=-1;
+        int devolucion = -1;
 
-       if(this.edad== gato.edad){
-           devolucion=0;
-       }else if(this.edad>gato.edad){
-           devolucion=1;
-       }
-        return devolucion;
-    }
-    public int compareNombre(Gato gato){
-
-        int devolucion=-1;
-
-        if(this.nombre.equals(gato.nombre) ){
-            devolucion=0;
-        }else if(this.nombre.ge){
-            devolucion=1;
+        if (this.edad == gato.edad) {
+            devolucion = 0;
+        } else if (this.edad > gato.edad) {
+            devolucion = 1;
         }
         return devolucion;
     }
 
-    /*
+    /**
+     * pasamos los dos valores de String a entero con la sentencia primera, una vez que
+     * hemos hecho esto creamos un if para comparar los valores obtenidos en el int.
+     * si es 0, son iguales y si no lo es es distonto
+     *
+     * @param gato
+     * @return un entero 0 si es true, y 1 si es false
+     */
+    public int compareNombre(Gato gato) {
 
-    public String compararNombre(Gato gato){
-
-        String mensaje="";
-       if (this.nombre.equals(gato.nombre)){
-           mensaje= "Los dos gatos se llaman igual";
-       }else {
-           mensaje = "Tienen distinto nombre";
-       }
-       return mensaje;
-
+        int nombre = this.nombre.compareTo(gato.nombre);
+        int devolucion;
+        if (nombre == 0) {
+            devolucion = 0;
+        } else {
+            devolucion = 1;
+        }
+        return devolucion;
     }
-    public int compararEdad(Gato gato) {
 
-
-        if (this.edad == gato.edad) {
-           int edad = this.edad;
-       }
-        return edad;
-    }*/
-
-    @Override
-    public String toString() {
-        return "Gato{" +
-                "nombre='" + nombre + '\'' +
-                ", color='" + color + '\'' +
-                ", raza='" + raza + '\'' +
-                ", edad=" + edad +
-                '}';
-    }
 }
