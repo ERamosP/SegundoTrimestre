@@ -9,11 +9,13 @@ public class Main_Gato {
 
 
 
-        gato1.compararEdad(gato2);
-        gato1.compararEdad(gato2);
+        gato1.compareTo(gato2);
+        gato1.
 
-        System.out.println(gato1.compararEdad(gato2));
-        System.out.println(gato1.compararNombre(gato2));
+      //  gato1.compararEdad(gato2);
+
+    //    System.out.println(gato1.compararEdad(gato2));
+     //  System.out.println(gato1.compararNombre(gato2));
         System.out.println(gato1);
         System.out.println(gato2);
     }

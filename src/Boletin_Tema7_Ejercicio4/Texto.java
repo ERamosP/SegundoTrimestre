@@ -1,6 +1,6 @@
 package Boletin_Tema7_Ejercicio4;
 
-enum vocales {a,e,i,o,u,á,é,í,ó,ú,ü}
+    enum Vocales {a,e,i,o,u,á,é,í,ó,ú,ü}
 
 public class Texto {
 

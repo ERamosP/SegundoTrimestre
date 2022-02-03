@@ -11,33 +11,33 @@ import java.util.Scanner;
 public class Fraccion {
 
         static Scanner sc=new Scanner(System.in);
-        private float numerador;
-        private float denominador;
+        private int numerador;
+        private int denominador;
 
         public Fraccion(){
             this.numerador=1;
             this.denominador=1;
         }
 
-    public Fraccion(float numerador, float denominador) {
+    public Fraccion(int numerador, int denominador) {
         this.numerador = numerador;
         this.denominador = denominador;
     }
 
 
-    public float getNumerador() {
+    public int getNumerador() {
         return numerador;
     }
 
-    public void setNumerador(float numerador) {
+    public void setNumerador(int numerador) {
         this.numerador = numerador;
     }
 
-    public float getDenominador() {
+    public int getDenominador() {
         return denominador;
     }
 
-    public void setDenominador(float denominador) {
+    public void setDenominador(int denominador) {
         this.denominador = denominador;
     }
 
@@ -48,9 +48,13 @@ public class Fraccion {
          return this.numerador / this.denominador * numUnico;
 
      }
-         public float multiplicarFraccion (Fraccion fraccion){
+         public Fraccion multiplicarFraccion (Fraccion fraccion){
 
-             return (this.numerador * fraccion.numerador) / (this.denominador * fraccion.denominador);
+            Fraccion f=new Fraccion();
+            f.numerador=this.numerador* fraccion.numerador;
+;            f.denominador=this.denominador* fraccion.denominador;
+
+             return f;
 
          }
 
@@ -61,7 +65,7 @@ public class Fraccion {
      * @param num
      * @return
      */
-         public Fraccion dividir ( float num){
+         public Fraccion dividir ( int num){
 
             Fraccion fraccion = new Fraccion();
 
@@ -70,10 +74,19 @@ public class Fraccion {
                 return fraccion;
          }
 
-         public float dividirFraccion (Fraccion fraccion){
+    /**
+     * pretendemos realizar la division de dos fracciones pasandolo por parametros la fraccion
+     * @param fraccion
+     * @return
+     */
+    public Fraccion dividirFraccion (Fraccion fraccion){
 
+             Fraccion f = new Fraccion();
 
-             return (this.numerador * fraccion.denominador) / (this.denominador * fraccion.numerador);
+             f.numerador=this.numerador* fraccion.denominador;
+             f.denominador=this.denominador * fraccion.numerador;
+
+             return f;
 
          }
          @Override
