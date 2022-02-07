@@ -62,20 +62,22 @@ proporciona como argumento.
     }
 
 
-    public void distanciaPunto(){
+    public double distanciaPunto(Punto punto){
 
-        double cuadradoX=Math.pow(this.coordX,2);
-        double cuadradoY=Math.pow(this.coordY,2);
+        double cuadradoX=Math.pow(punto.coordX-this.coordX,2);
+        double cuadradoY=Math.pow(punto.coordY-this.coordY,2);
 
+
+        return Math.sqrt((cuadradoX)+(cuadradoY));
 
     }
 
 
-    public double distancia(Punto punto){
+    public double distancia(){
 
         double cuadradoX=Math.pow(0-this.coordX,2);
-        double cuadradoY=Math.pow(this.coordY,2);
+        double cuadradoY=Math.pow(0-this.coordY,2);
 
-        return Math.sqrt((0-cuadradoX)+(0-cuadradoY));
+        return Math.sqrt((cuadradoX)+(cuadradoY));
     }
 }
