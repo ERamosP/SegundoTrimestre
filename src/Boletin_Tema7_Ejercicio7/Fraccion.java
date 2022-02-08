@@ -1,7 +1,7 @@
 package Boletin_Tema7_Ejercicio7;
 
 
-import java.util.Scanner;
+
 
 /**
  * Ejercicio 7.- Crea la clase Fracción. Los atributos, en principio, serán numerador y denominador.
@@ -10,16 +10,14 @@ import java.util.Scanner;
  */
 public class Fraccion {
 
-        static Scanner sc=new Scanner(System.in);
-        private int numerador;
-        private int denominador;
+        private double numerador;
+        private double denominador;
 
     /**
      * metodo construcctor con valores inicializados a uno para poder ser llamados en los metodos
      */
         public Fraccion(){
-            this.numerador=1;
-            this.denominador=1;
+
         }
 
     public Fraccion(int numerador, int denominador) {
@@ -28,146 +26,63 @@ public class Fraccion {
     }
 
 
-    public int getNumerador() {
+    public double getNumerador() {
         return numerador;
     }
 
-    public void setNumerador(int numerador) {
+    public void setNumerador(double numerador) {
         this.numerador = numerador;
     }
 
-    public int getDenominador() {
+    public double getDenominador() {
         return denominador;
     }
 
-    public void setDenominador(int denominador) {
+    public void setDenominador(double denominador) {
         this.denominador = denominador;
     }
 
-
+    /**
+     * creamos un metodo para dibujar por pantalla la fraccion
+     */
+    public void dibujarFraccion (){
+        System.out.println(" " + this.numerador + "/" + this.denominador);
+    }
     /**
      * metodo para multiplicar la fraccion por un unico numero
-     * @param numUnico
-     * @return
-     */
-     public float multiplicar(int numUnico) {
-
-         return this.numerador / this.denominador * numUnico;
-
-     }
-         public Fraccion multiplicarFraccion (Fraccion fraccion){
-
-            Fraccion f=new Fraccion();
-            f.numerador=this.numerador* fraccion.numerador;
-;            f.denominador=this.denominador* fraccion.denominador;
-
-             return f;
-
-         }
-
-    /**
-     * llamamos a la clase fraccion, sin parametros y como estan inicializadas en 1,
-     * le asignamos el valor de los parametros introducidos por consola, en este caso es el this.num
-     * this.den
      * @param num
-     * @return
      */
-         public Fraccion dividir ( int num){
-
-            Fraccion fraccion = new Fraccion();
-
-            fraccion.numerador=this.denominador;
-            fraccion.denominador=this.denominador*num;
-                return fraccion;
-         }
-
-    /**
-     * pretendemos realizar la division de dos fracciones pasandolas por parametros la fraccion
-     * @param fraccion
-     * @return
-     */
-    public Fraccion dividirFraccion (Fraccion fraccion){
-
-             Fraccion f = new Fraccion();
-
-             f.numerador=this.numerador* fraccion.denominador;
-             f.denominador=this.denominador * fraccion.numerador;
-
-             return f;
-    }
-    private int maximoComunDivisor (){
-        int numer = Math.abs(this.numerador);
-        int denom = Math.abs(this.denominador);
-        int temp;
-        if (denom == 0){
-            return numer;
-        }
-        while (denom != 0){
-            temp = numer%denom;
-            numer = denom;
-            denom = temp;
-        }return numer;
-    }
-
-    public void simplificar (){
-        int mcd = maximoComunDivisor();
-        this.numerador = this.numerador/mcd;
-        this.denominador = this.denominador/mcd;
-    }
-         @Override
-         public String toString () {
-
-             return this.numerador + "/" + this.denominador;
-         }
-/*
-public Fraccion(int numerador, int denominador) {
-        this.numerador = numerador;
-        this.denominador = denominador;
-    }
-
-    public void dibujarFraccion (){
-        System.out.println("La fraccion es " + this.numerador + "/" + this.denominador);
-    }
-
-    private int maximoComunDivisor (){
-        int numer = Math.abs(this.numerador);
-        int denom = Math.abs(this.denominador);
-        int temp;
-        if (denom == 0){
-            return numer;
-        }
-        while (denom != 0){
-            temp = numer%denom;
-            numer = denom;
-            denom = temp;
-        }return numer;
-    }
-
-    public void simplificar (){
-        int mcd = maximoComunDivisor();
-        this.numerador = this.numerador/mcd;
-        this.denominador = this.denominador/mcd;
-        dibujarFraccion();
-    }
-
-    public void multiplicar (double num){
+    public void multiplicar (int num){
         this.numerador=num;
         simplificar();
         dibujarFraccion();
     }
 
-    public void dividir (double num){
-        this.denominador/=num;
-        simplificar();
-        dibujarFraccion();
-    }
-
+    /**
+     * metodo para multiplicar dor fracciones, una de ellas dada por paramentro
+     * @param fraccion
+     */
     public void multiplicarFraccion (Fraccion fraccion){
         this.numerador=fraccion.numerador;
         this.denominador=fraccion.denominador;
         simplificar();
         dibujarFraccion();
     }
+
+    /**
+     * creamos un metodo para dividir la fraccion por un numero dado por paramentros
+     * @param num
+     */
+    public void dividir (double num){
+        this.denominador/=num;
+        simplificar();
+        dibujarFraccion();
+    }
+
+    /**
+     * pretendemos realizar la division de dos fracciones pasandolas por parametros la fraccion que queremos dividir
+     * @param fraccion
+     */
 
     public void dividirFraccion (Fraccion fraccion){
         this.numerador= fraccion.denominador;
@@ -176,11 +91,44 @@ public Fraccion(int numerador, int denominador) {
         dibujarFraccion();
     }
 
+    /**
+     * creamos un metodo privado, para qu eno sea accesible para el usuario, ya que lo que queremos conseguir
+     * aqui es em mcd
+     * @return numer
+     */
+     private int maximoComunDivisor (){
+        int num =(int) Math.abs(this.numerador);
+        int den = (int)Math.abs(this.denominador);
+        int temp;
+        if (den == 0){
+            return num;
+        }
+        while (den != 0){
+            temp = num%den;
+            num = den;
+            den = temp;
+        }return num;
+    }
+
+    /**
+     * creamos un metodo para poder simplificar usando la funcion del mcd las fracciones y llama al metodo dibujar para
+     * que las imprima por pantalla
+     */
+    public void simplificar (){
+        int mcd = maximoComunDivisor();
+        this.numerador = this.numerador/mcd;
+        this.denominador = this.denominador/mcd;
+        dibujarFraccion();
+    }
+
+    /**
+     * Metodo para simplificar invertir el signo de la fraccion
+     */
     public void invertirSigno (){
         this.numerador=(-1);
         simplificar();
         dibujarFraccion();
     }
 }
- */
-     }
+
+

@@ -38,7 +38,9 @@ public class Main_Medios_Transporte {
 
         System.out.println("Introduzca la matricula");
         coche2.setMatricula(sc.nextLine());
-
+/**
+ * Usamos try para comprobar que no introducimos ningun valor no valido
+ */
         System.out.println("""
                 ----   Indique el modelo del vehiculo que desee   ----
                 * Mercedes

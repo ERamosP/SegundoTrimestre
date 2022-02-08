@@ -5,14 +5,12 @@ public class Main_punto {
     public static void main(String[] args) {
 
 
+    Punto punto1=new Punto(7,9);
+    Punto punto2=new Punto(5,2);
 
-    Punto punto1 = new Punto(3, 4);
-    Punto punto2 = new Punto(2, 5);
-
-        System.out.println();
-
+    punto1.igual(punto2);
+    punto2.distancia();
+    punto1.distanciaPunto(punto2);
 }
-
-
 
 }

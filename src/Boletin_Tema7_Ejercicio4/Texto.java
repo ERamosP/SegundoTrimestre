@@ -22,7 +22,11 @@ public class Texto {
     }
 
 
-
+    /**
+     *
+     * @param cadena
+     * @return
+     */
     public boolean añadirCaracterInicio(String cadena){
 
         boolean resultado=false;

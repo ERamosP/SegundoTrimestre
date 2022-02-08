@@ -52,6 +52,7 @@ Punto al origen de coordenadas.
 proporciona como argumento.
      */
 
+
     public void igual(Punto punto){
 
         if (this.coordX==punto.coordX && this.coordY== punto.coordY){
@@ -61,17 +62,25 @@ proporciona como argumento.
         }
     }
 
+    /**
+     * lo que se pretende es saber la distancia desde el origen a la coordenada introducioendo por parametros
+     * las coordenadas de otro objeto de la clase punto
+     * @param punto
+     */
+    public void distanciaPunto(Punto punto){
 
-    public double distanciaPunto(Punto punto){
-
-        double cuadradoX=Math.pow(punto.coordX-this.coordX,2);
-        double cuadradoY=Math.pow(punto.coordY-this.coordY,2);
-
-
-        return Math.sqrt((cuadradoX)+(cuadradoY));
+        double cuadradoX=Math.pow(this.coordX,2);
+        double cuadradoY=Math.pow(this.coordY,2);
+        double res=cuadradoX+cuadradoY;
+        double resultado=Math.sqrt(res);
+        System.out.println("La distancia de las coor X a la coor Y es : " +resultado );
 
     }
 
+    /**
+     * lo que se pretende es saber la distancia desde el origen a la coordenada
+     * @return
+     */
 
     public double distancia(){
 

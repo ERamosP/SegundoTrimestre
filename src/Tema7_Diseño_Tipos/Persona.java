@@ -7,14 +7,25 @@ public class Persona implements Comparable <Persona>{
     private int edad;
     private String dni;
     private char genero;
-    private float peso;
-    private float altura;
+    private double peso;
+    private double altura;
 
-
+    /**
+     * Metodo constructor sin paramentro
+     */
     public Persona() {
     }
 
-    public Persona(String nombre, int edad, String dni, char genero, float peso, float altura) {
+    /**
+     * Metodo constructor con paramentros de entrada
+     * @param nombre
+     * @param edad
+     * @param dni
+     * @param genero
+     * @param peso
+     * @param altura
+     */
+    public Persona(String nombre, int edad, String dni, char genero, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;
@@ -23,8 +34,19 @@ public class Persona implements Comparable <Persona>{
         this.altura = altura;
     }
 
+    /**
+     * constructor copia
+     * @param persona
+     */
     public Persona(Persona persona) {
+        this.nombre= persona.nombre;
+        this.edad = persona.edad;
+        this.dni = persona.dni;
+        this.genero = persona.genero;
+        this.peso = persona.peso;
+        this.altura= persona.altura;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -57,19 +79,19 @@ public class Persona implements Comparable <Persona>{
         this.genero = genero;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
@@ -78,4 +100,25 @@ public class Persona implements Comparable <Persona>{
         return 0;
   }
 
+  public double calcularIMC(double peso, double altura){
+
+        this.peso=peso;
+        this.altura=altura;
+        double imc;
+
+
+
+        return this.peso/(this.altura*this.altura);
+
+  }
+
+      public void serMayorEdad(int edad){
+
+            if (this.edad>=18){
+                System.out.println("Es mayor de edad");
+            }else{
+                System.out.println("No es mayor de edad");
+            }
+
+     }
 }

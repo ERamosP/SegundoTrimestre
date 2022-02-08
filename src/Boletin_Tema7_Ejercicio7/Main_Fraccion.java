@@ -28,9 +28,13 @@ public class Main_Fraccion {
 
     Fraccion fraccion1=new Fraccion(pedirNumerador(),pedirDenominador());
 
-   // Fraccion fraccion2=new Fraccion(pedirNumerador(),pedirDenominador());
+    Fraccion fraccion2=new Fraccion(pedirNumerador(),pedirDenominador());
 
-        System.out.println(  fraccion1.dividir(7));
+    fraccion1.dividir(7);
+    fraccion2.dividirFraccion(fraccion1);
+
+    fraccion1.multiplicar(8);
+    fraccion2.multiplicarFraccion(fraccion1);
 
 
 

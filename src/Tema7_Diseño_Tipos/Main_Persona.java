@@ -8,5 +8,7 @@ public class Main_Persona {
         Persona persona1=new Persona();
         Persona persona2=new Persona();
 
+        System.out.println(persona1.calcularIMC(100.0,165.0));
+
     }
 }
