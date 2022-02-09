@@ -9,11 +9,13 @@ public class Persona implements Comparable <Persona>{
     private char genero;
     private double peso;
     private double altura;
+    static int contador;
 
     /**
      * Metodo constructor sin paramentro
      */
     public Persona() {
+        contador++;
     }
 
     /**
@@ -32,6 +34,7 @@ public class Persona implements Comparable <Persona>{
         this.genero = genero;
         this.peso = peso;
         this.altura = altura;
+        contador++;
     }
 
     /**
@@ -45,6 +48,7 @@ public class Persona implements Comparable <Persona>{
         this.genero = persona.genero;
         this.peso = persona.peso;
         this.altura= persona.altura;
+        contador++;
     }
 
     public String getNombre() {
@@ -95,21 +99,36 @@ public class Persona implements Comparable <Persona>{
         this.altura = altura;
     }
 
-  public int compareTo(Persona P){
+  public int compareTo(Persona p){
 
-        return 0;
+        return this.nombre.compareTo(p.nombre);
   }
 
-  public double calcularIMC(double peso, double altura){
-
-        this.peso=peso;
-        this.altura=altura;
-        double imc;
+  public int saberPesoIdeal(){
+         int retorno=-1;
 
 
+        if(calcularIMC()>=25.0){
+            retorno=1;
+        }else if (calcularIMC()>=18.5 && calcularIMC()<25.0){
+            retorno=0;
+        }
+        return retorno;
+  }
 
+  public double calcularIMC(){
         return this.peso/(this.altura*this.altura);
+  }
 
+  public void pintarPeso(){
+
+        if (saberPesoIdeal()==0){
+
+        }else if(saberPesoIdeal()==1){
+            System.out.println("Eres un bolindre o estas mu fuerte");
+        }else{
+            System.out.println("Fino filipino... come coño");
+        }
   }
 
       public void serMayorEdad(int edad){
@@ -119,6 +138,7 @@ public class Persona implements Comparable <Persona>{
             }else{
                 System.out.println("No es mayor de edad");
             }
-
      }
+
+
 }

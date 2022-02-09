@@ -4,6 +4,7 @@ package Boletin_Tema7_Ejercicio10;
 Ejercicio 10.- Implementar una clase Gato con las siguientes características:
  Atributos (String) nombre, color, raza, (Int) edad
  Constructores necesarios*/
+
 public class Gato implements Comparable<Gato> {
 
     private String nombre;
@@ -67,6 +68,7 @@ public class Gato implements Comparable<Gato> {
      * @return devuelve un numero entre el -1 y 1.
      */
 
+    @Override
     public int compareTo(Gato gato) {
 
         int devolucion = -1;
@@ -87,6 +89,8 @@ public class Gato implements Comparable<Gato> {
      * @param gato
      * @return un entero 0 si es true, y 1 si es false
      */
+
+
     public int compareNombre(Gato gato) {
 
         int nombre = this.nombre.compareTo(gato.nombre);
