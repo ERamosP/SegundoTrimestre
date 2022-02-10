@@ -1,6 +1,8 @@
 package Tema7_Diseño_Tipos;
 
 
+import java.util.Objects;
+
 public class Persona implements Comparable <Persona>{
 
     private String nombre;
@@ -125,13 +127,14 @@ public class Persona implements Comparable <Persona>{
         if (saberPesoIdeal()==0){
 
         }else if(saberPesoIdeal()==1){
-            System.out.println("Eres un bolindre o estas mu fuerte");
+            System.out.println("Estas mu fuerte");
         }else{
-            System.out.println("Fino filipino... come coño");
+            System.out.println("Fino filipino... come, coño!!");
         }
   }
 
-      public void serMayorEdad(int edad){
+  
+      public void serMayorEdad(){
 
             if (this.edad>=18){
                 System.out.println("Es mayor de edad");
@@ -139,6 +142,23 @@ public class Persona implements Comparable <Persona>{
                 System.out.println("No es mayor de edad");
             }
      }
+     
+     public void igualar(Persona p){
+        
+        if (this.nombre.equals(p.nombre)){
+             System.out.println("Se llaman igual");
+        }else{
+             System.out.println("No se llaman igual");
+         }
+        
+     }
 
+    @Override
+    public boolean equals(Persona persona) {
+        if (this == persona) return true;
+        return this.edad == persona.edad && this.genero == persona.genero &&
+                Double.compare(persona.peso, this.peso) == 0 && Double.compare(persona.altura, this.altura) == 0 &&
+                Objects.equals(this.nombre, persona.nombre) && Objects.equals(this.dni, persona.dni);
+    }
 
 }
