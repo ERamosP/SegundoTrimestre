@@ -9,14 +9,14 @@ import java.util.Objects;
 
 public class Persona implements Comparable <Persona>{
 
-    private String nombre;
-    private int edad;
-    private String dni;
-    private Sexo genero;
-    private double peso;
-    private double altura;
-
-
+            private String nombre;
+            private int edad;
+            private String dni;
+            private Sexo genero;
+            private double peso;
+            private double altura;
+            static int contadorTotal=0;
+            static Persona persona=new Persona();
     /**
      * Metodo constructor sin paramentro
      */
@@ -109,7 +109,7 @@ public class Persona implements Comparable <Persona>{
         return this.nombre.compareTo(p.nombre);
   }
 
-  public int saberPesoIdeal(){
+  public static int saberPesoIdeal(){
          int retorno=-1;
 
 
@@ -121,11 +121,11 @@ public class Persona implements Comparable <Persona>{
         return retorno;
   }
 
-  public double calcularIMC(){
-        return this.peso/(this.altura*this.altura);
+  public static double calcularIMC(){
+        return persona.peso/(persona.altura*persona.altura);
   }
 
-  public void pintarPeso(){
+  public static void pintarPeso(){
 
         if (saberPesoIdeal()==0){
 
@@ -137,9 +137,9 @@ public class Persona implements Comparable <Persona>{
   }
 
   
-      public void serMayorEdad(){
+      public static void serMayorEdad(){
 
-            if (this.edad>=18){
+            if (persona.edad>=18){
                 System.out.println("Es mayor de edad");
             }else{
                 System.out.println("No es mayor de edad");
@@ -156,6 +156,7 @@ public class Persona implements Comparable <Persona>{
         
      }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -170,7 +171,7 @@ public class Persona implements Comparable <Persona>{
      */
     public static Persona crearPersona(){
 
-        Persona persona=new Persona();
+
         System.out.println("Indique su nombre");
         persona.setNombre(ClaseMenu.leerDatosSt());
         System.out.println("Introduzca la edad");
@@ -189,4 +190,18 @@ public class Persona implements Comparable <Persona>{
 
 
 
+
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + this.nombre + System.lineSeparator() +
+                ", edad=" + this.edad + System.lineSeparator() +
+                ", dni='" + this.dni + System.lineSeparator() +
+                ", genero=" + this.genero + System.lineSeparator() +
+                ", peso=" + this.peso + System.lineSeparator() +
+                ", altura=" + this.altura + System.lineSeparator() +
+                ", IMC= " + calcularIMC() + System.lineSeparator();
+
+    }
 }

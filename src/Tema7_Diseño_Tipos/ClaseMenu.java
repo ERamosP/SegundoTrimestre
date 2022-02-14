@@ -7,10 +7,16 @@ import java.util.Scanner;
 public class ClaseMenu {
 
     static Scanner sc=new Scanner(System.in);
+    static int contadorMujer=0;
+    static int contadorHombre=0;
+    static int contadorOtro=0;
+    static int sumaEdad=0;
+    static double sumaPeso=0;
+    static double sumaAltura=0;
 
     public static String leerDatosSt(){
 
-        return sc.nextLine();
+        return sc.next();
     }
 
 
@@ -26,8 +32,7 @@ public class ClaseMenu {
                 [1] Conocer peso medio
                 [2] Conocer la altura media
                 [3] Conocer la edad media
-                [4] Cuantas son mujeres
-                [5] Cuantos hombres
+                [4] Sexos
                 [0] Salir
                 ---------------------------------------""");
 
@@ -35,33 +40,23 @@ public class ClaseMenu {
 
     public static void elegirOpcion(){
 
-        Persona p1=Persona.crearPersona();
-        Persona p2=Persona.crearPersona();
+
         boolean salir=false;
 
         do {
             pintarMenu();
 
-            switch (leerDatosSt()){
+            switch (leerDatosSt()) {
+                case "1" -> System.out.println("la "+calcularPesoMedio());
+                case "2" -> System.out.println(" "+calcularAlturaMedia());
+                case "3" -> System.out.println( " "+calcularEdadMedia());
+                case "4" -> {
+                    System.out.println("Hay: " + contadorMujer + " mujeres");
+                    System.out.println("Hay: " + contadorHombre + " hombres");
+                    System.out.println("Hay: " + contadorOtro+ " otro");
+                }
 
-                case "1" :
-                    System.out.println(Main_Persona.calcularPesoMedio(p1,p2));
-
-                    break;
-                case "2" :
-                    System.out.println(Main_Persona.calcularAlturaMedia(p1,p2));
-                    break;
-                case "3" :
-                    System.out.println("");
-                    break;
-                case "4" :
-                    System.out.println("");
-                    break;
-
-                case "0":
-                    salir=true;
-                    break;
-
+                case "0" -> salir = true;
             }
 
 
@@ -71,7 +66,12 @@ public class ClaseMenu {
 
     public static Sexo introducirSexo(){
 
+
+
         Sexo sexo=null;
+        do {
+
+
         System.out.println("""
               ---------- Con que sexo se identifica ----------
                 [1] Hombre
@@ -79,19 +79,40 @@ public class ClaseMenu {
                 [3] Otro
                 -----------------------------------------------""");
 
-        switch (leerDatosSt()){
-            case "1":
-                sexo=Sexo.HOMBRE;
-                break;
-            case "2":
-                sexo=Sexo.MUJER;
-            break;
-            case "3":
-               sexo=Sexo.OTRO;
-                break;
-            default:
-                System.out.println("Lo introducido no es valido ");
+        switch (leerDatosSt()) {
+            case "1" -> {
+                sexo = Sexo.HOMBRE;
+                contadorHombre++;
+            }
+            case "2" -> {
+                sexo = Sexo.MUJER;
+                contadorMujer++;
+            }
+
+            case "3" -> {
+                sexo = Sexo.OTRO;
+                contadorOtro++;
+            }
+
+            default -> System.out.println("Lo introducido no es valido ");
         }
+        }while (sexo==null);
         return sexo;
     }
+    public static double calcularPesoMedio(){
+
+
+        return sumaPeso/Persona.contadorTotal;
+    }
+    public static double calcularAlturaMedia(){
+
+
+        return sumaAltura/Persona.contadorTotal;
+    }
+
+    public static int calcularEdadMedia(){
+        return sumaEdad/Persona.contadorTotal;
+    }
+
+
 }

@@ -1,5 +1,7 @@
 package Tema7_Diseño_Tipos;
 
+import Enums.Sexo;
+
 import java.util.Scanner;
 
 public class Main_Persona {
@@ -8,22 +10,28 @@ public class Main_Persona {
 
     public static void main(String[] args) {
 
+        boolean salir=false;
+       do {
+           System.out.println(Persona.crearPersona());
+           Persona.contadorTotal++;
+           Persona.pintarPeso();
+           Persona.serMayorEdad();
+           System.out.println("""
+                   ------- ¿Desea continuar? ------
+                   [1] Si
+                   [0] No
+                   --------------------------------""");
+           if (ClaseMenu.sc.nextInt()!=1){
+               salir=true;
+           }
+       }while (!salir);
         ClaseMenu.elegirOpcion();
 
 
 
 
  }
-public static double calcularPesoMedio(Persona p1, Persona p2){
 
-
-        return (p1.getPeso()+p2.getPeso())/2;
-}
-    public static double calcularAlturaMedia(Persona p1, Persona p2){
-
-
-        return (p1.getAltura()+p2.getAltura())/2;
-    }
 
 
 
