@@ -8,7 +8,12 @@ import java.util.Objects;
 
 
 public class Persona implements Comparable <Persona>{
-
+    /**
+     * Creacion de los atributos de la clase Persona, los que corresponden a la clase como
+     * tal estan declarados como privados, hemos creado un atributo estatico, para
+     * un contador y la creacion del objeto dentro de la clase para llamar al metodo
+     * persona creado mas abajo
+     */
             private String nombre;
             private int edad;
             private String dni;
@@ -55,7 +60,7 @@ public class Persona implements Comparable <Persona>{
         this.altura= persona.altura;
 
     }
-
+// Metodos getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -104,11 +109,24 @@ public class Persona implements Comparable <Persona>{
         this.altura = altura;
     }
 
+    /**
+     * Metodo compareTo para que el orden natural sea a traves del nombre
+     * @param p
+     * @return
+     */
   public int compareTo(Persona p){
 
         return this.nombre.compareTo(p.nombre);
   }
 
+    /**
+     * Metodo para conocer el peso ideal a traves del metodo llamado IMC, creado mas abajo
+     *  lo iniciamos a -1, para no tener que darle mas condiciones de las necesarias al if
+     *  y lo hacemos de esta manera, ya que enumciado del ejercicio requeria lo siguiente:
+     *   Si una persona está por debajo de su peso ideal se devuelve un -1 si está en su
+     *   peso ideal un 0 y si tiene sobrepeso un 1.
+     * @return
+     */
   public static int saberPesoIdeal(){
          int retorno=-1;
 
@@ -121,9 +139,18 @@ public class Persona implements Comparable <Persona>{
         return retorno;
   }
 
+    /**
+     * Metodo para calcular el indice de grasa corporal
+     * @return devuelve el resultado de el peso de la persona/la altura^2
+     */
   public static double calcularIMC(){
         return persona.peso/(persona.altura*persona.altura);
   }
+
+    /**
+     * Metodo para pintar el peso en pantalla, usando el metodo saberPesoIdeal como
+     * referencia para devolver los resultados
+     */
 
   public static void pintarPeso(){
 
@@ -136,7 +163,9 @@ public class Persona implements Comparable <Persona>{
         }
   }
 
-  
+    /**
+     * Metodo para saber si el objeto creado es mayor de edad o no
+     */
       public static void serMayorEdad(){
 
             if (persona.edad>=18){
@@ -145,24 +174,43 @@ public class Persona implements Comparable <Persona>{
                 System.out.println("No es mayor de edad");
             }
      }
-     
-     public void igualar(Persona p){
+
+    /**
+     * Metodo equals, para saber si dos objetos se llaman igual introduciendo por parametros
+     * el objeto de la clase persona, tan solo lo comentamos ya que no va a devolver nada,
+     * pero sirvepara demostrar lo indicado en el apartado posterior
+     * @param p
+     *
+    public boolean equals(Persona p){
         
         if (this.nombre.equals(p.nombre)){
              System.out.println("Se llaman igual");
         }else{
              System.out.println("No se llaman igual");
          }
-        
-     }
+        return true;
+     }*/
 
+    /**
+     * Metodo equals con override, ya que viene de la clase generica Objeto
+     * en la que demostramos que si queremos crear dos metodos llamado de la misma
+     * forma, con los mismos parametros de entrada, pero haciendo el override de la
+     * clase Object, se puede hacer. Tiene la misma funcion pero este compara todos los
+     * atributos de la clase
+     *
+     * @param o
+     * @return
+     */
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Persona)) return false;
         Persona persona = (Persona) o;
-        return edad == persona.edad && genero == persona.genero && Double.compare(persona.peso, peso) == 0 && Double.compare(persona.altura, altura) == 0 && Objects.equals(nombre, persona.nombre) && Objects.equals(dni, persona.dni);
+        return edad == persona.edad && genero == persona.genero
+        && Double.compare(persona.peso, peso) == 0
+        && Double.compare(persona.altura, altura) == 0
+        && Objects.equals(nombre, persona.nombre) && Objects.equals(dni, persona.dni);
     }
 
     /**
@@ -188,9 +236,12 @@ public class Persona implements Comparable <Persona>{
     }
 
 
-
-
-
+    /**
+     * Metodo toString para imprimir por consola todos los datos de la clase, ademas
+     * de introducirle el IMC, que se lo pasamos como metodo y al estar dentro de la
+     * misma clase, solo lo invocamos
+     * @return
+     */
 
     @Override
     public String toString() {

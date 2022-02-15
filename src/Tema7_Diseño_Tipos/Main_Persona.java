@@ -6,7 +6,10 @@ import java.util.Scanner;
 
 public class Main_Persona {
 
-
+    /**
+     * Metodo main para poder ejecutar los metodos y las clases creadas en el mismo paquete
+     * @param args
+     */
 
     public static void main(String[] args) {
 
