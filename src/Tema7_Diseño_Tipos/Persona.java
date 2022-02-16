@@ -236,9 +236,9 @@ public class Persona implements Comparable <Persona>{
         persona.setAltura(Double.parseDouble(ClaseMenu.leerDatosSt()));
         //aumento en 1 el número de objetos Persona creados y acumulo el peso de las personas
         contadorTotal++;
-        pesoTotal+= persona.getPeso();
-        alturaTotal+=persona.getAltura();
-        edadTotal+=persona.getEdad();
+        pesoTotal+= persona.peso;
+        alturaTotal+=persona.altura;
+        edadTotal+=persona.edad;
        return persona;
     }
 
