@@ -21,6 +21,9 @@ public class Persona implements Comparable <Persona>{
             private double peso;
             private double altura;
             static int contadorTotal=0;
+            static int pesoTotal=0;
+            static int alturaTotal=0;
+            static int edadTotal=0;
             static Persona persona=new Persona();
     /**
      * Metodo constructor sin paramentro
@@ -231,7 +234,11 @@ public class Persona implements Comparable <Persona>{
         persona.setPeso(Double.parseDouble(ClaseMenu.leerDatosSt()));
         System.out.println("Introduzca la altura");
         persona.setAltura(Double.parseDouble(ClaseMenu.leerDatosSt()));
-
+        //aumento en 1 el número de objetos Persona creados y acumulo el peso de las personas
+        contadorTotal++;
+        pesoTotal+= persona.getPeso();
+        alturaTotal+=persona.getAltura();
+        edadTotal+=persona.getEdad();
        return persona;
     }
 

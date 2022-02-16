@@ -16,7 +16,7 @@ public class Main_Persona {
         boolean salir=false;
        do {
            System.out.println(Persona.crearPersona());
-           Persona.contadorTotal++;
+           System.out.println("número de personas dadas de alta = "+Persona.contadorTotal);
            Persona.pintarPeso();
            Persona.serMayorEdad();
            System.out.println("""

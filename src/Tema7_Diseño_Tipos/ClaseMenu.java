@@ -12,9 +12,7 @@ public class ClaseMenu {
     static int contadorMujer=0;
     static int contadorHombre=0;
     static int contadorOtro=0;
-    static int sumaEdad=0;
-    static double sumaPeso=0;
-    static double sumaAltura=0;
+
 
     /**
      * Metodo para leer datos por consola y devolver el valor dado mediante un String
@@ -119,7 +117,7 @@ public class ClaseMenu {
     public static double calcularPesoMedio(){
 
 
-        return sumaPeso/Persona.contadorTotal;
+        return Persona.pesoTotal/Persona.contadorTotal;
     }
     /**
      * Metodo para calcular la altura media de todos los objetos creados
@@ -129,7 +127,7 @@ public class ClaseMenu {
     public static double calcularAlturaMedia(){
 
 
-        return sumaAltura/Persona.contadorTotal;
+        return Persona.alturaTotal/Persona.contadorTotal;
     }
     /**
      * Metodo para calcular la edad media de todos los objetos creados
@@ -137,7 +135,7 @@ public class ClaseMenu {
      * como es sumaEdad y otro declarado en la clase Persona
      */
     public static int calcularEdadMedia(){
-        return sumaEdad/Persona.contadorTotal;
+        return Persona.edadTotal/Persona.contadorTotal;
     }
 
 
